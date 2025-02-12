@@ -1,6 +1,8 @@
-import express from 'express';
+import express , {urlencoded} from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 
 
 const app = express();
@@ -8,6 +10,14 @@ const app = express();
 app.use(express.json());
 
 dotenv.config();
+
+app.use(cookieParser());
+app.use(urlencoded({ extended: true }));
+const corsOptions = {
+    origin: process.env.URL,
+    credentials: true
+}
+app.use(cors(corsOptions));
 
 mongoose.connect(process.env.MONGODB_URL).then(() => {
   console.log('Connected to MongoDB');
