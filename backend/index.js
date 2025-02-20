@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import userRoute from './routes/user.route.js';
 
 
 const app = express();
@@ -26,6 +27,8 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
 app.get('/test', (req, res) => {
 res.send('Server is ready');
 });
+
+app.use("/api/v1/user", userRoute);
 
 
 
