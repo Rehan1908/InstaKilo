@@ -1,16 +1,22 @@
 import express from "express";
-import { editProfile, followOrUnfollow, getUser, getSuggestedUsers, login, logout, register } from "../controllers/user.controller.js";
-import isAuthenticated from '../utils/isAuthenticated.js'
-import upload from '../utils/multer.js';
+import { editProfile, followOrUnfollow, getProfile, getSuggestedUsers, login, logout, register, getUserFollowers, getUserFollowing } from "../controllers/user.controller.js";
+import isAuthenticated from "../middlewares/isAuthenticated.js";
+import upload from "../middlewares/multer.js";
 
 const router = express.Router();
 
 router.route('/register').post(register);
 router.route('/login').post(login);
 router.route('/logout').get(logout);
-router.route('/:id/profile').get(isAuthenticated, getUser);
-router.route('/profile/edit').post(isAuthenticated, upload.single('profilePicture'), editProfile);
+router.route('/:id/profile').get(isAuthenticated, getProfile);
+router.route('/profile/edit').post(isAuthenticated, upload.single('profilePhoto'), editProfile);
 router.route('/suggested').get(isAuthenticated, getSuggestedUsers);
 router.route('/followorunfollow/:id').post(isAuthenticated, followOrUnfollow);
+
+// Get user's followers with details
+router.route('/followers/:id').get(isAuthenticated, getUserFollowers);
+
+// Get user's following with details
+router.route('/following/:id').get(isAuthenticated, getUserFollowing);
 
 export default router;
