@@ -31,7 +31,7 @@ const ChatPage = () => {
     if (!selectedUser || !textMessage.trim()) return;
     
     try {
-      const res = await axios.post(`http://localhost:3000/api/v1/message/send/${selectedUser._id}`, 
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/message/send/${selectedUser._id}`, 
       { textMessage }, 
       {
         headers: { 'Content-Type': 'application/json' },
@@ -96,7 +96,7 @@ const ChatPage = () => {
             dispatch(setSelectedUser(userFromList))
           } else {
             // Fetch user if not in list
-            const res = await axios.get(`http://localhost:3000/api/v1/user/${userId}`, {
+            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/user/${userId}`, {
               withCredentials: true
             })
             

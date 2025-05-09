@@ -29,7 +29,7 @@ const CommentDialog = ({ open, setOpen }) => {
 
   const sendMessageHandler = async () => {
     try {
-      const res = await axios.post(`http://localhost:3000/api/v1/post/${selectedPost?._id}/comment`, { text }, {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/post/${selectedPost?._id}/comment`, { text }, { // CORRECTED
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true
       })

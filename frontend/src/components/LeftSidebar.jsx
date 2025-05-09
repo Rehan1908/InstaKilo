@@ -30,7 +30,7 @@ const LeftSidebar = () => {
 
 	const logoutHandler = async () => {
 		try {
-			const res = await axios.get("http://localhost:3000/api/v1/user/logout", {
+			const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/user/logout`, { 
 				withCredentials: true,
 			});
 			if (res.data.success) {

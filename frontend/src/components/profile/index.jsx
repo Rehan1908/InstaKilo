@@ -60,7 +60,7 @@ const Profile = () => {
     
     try {
       setFollowLoading(true)
-      const res = await axios.post(`http://localhost:3000/api/v1/user/followorunfollow/${userProfile._id}`, {}, {
+      const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/api/v1/user/followorunfollow/${userProfile._id}`, {}, { 
         withCredentials: true
       })
       
@@ -93,7 +93,7 @@ const Profile = () => {
     setLoadingUserList(true)
     
     try {
-      const res = await axios.get(`http://localhost:3000/api/v1/user/followers/${userProfile._id}`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/user/followers/${userProfile._id}`, { // CORRECTED
         withCredentials: true
       });
       
@@ -116,7 +116,7 @@ const Profile = () => {
     setLoadingUserList(true)
     
     try {
-      const res = await axios.get(`http://localhost:3000/api/v1/user/following/${userProfile._id}`, {
+      const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/v1/user/following/${userProfile._id}`, { // CORRECTED
         withCredentials: true
       });
       
