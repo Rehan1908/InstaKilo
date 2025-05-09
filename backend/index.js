@@ -31,6 +31,7 @@ app.use(cors(corsOptions));
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/post", postRoute);
 app.use("/api/v1/message", messageRoute);
+app.use("/api/v1/auth", authRoutes);
 
 
 // app.use(express.static(path.join(__dirname, "/frontend/dist")));
