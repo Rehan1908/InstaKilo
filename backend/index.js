@@ -22,8 +22,9 @@ const corsOptions = {
     origin: [
         'http://localhost:5173', 
         'http://localhost:5174', 
-        'https://insta-kilo-9asl.vercel.app', // Add this primary frontend URL
-        'https://insta-kilo-9asl-en8cqa9vu-rehans-projects-bda1d4c6.vercel.app' // Add this specific deployment URL if needed
+        'https://insta-kilo-9asl.vercel.app', 
+        'https://insta-kilo-9asl-en8cqa9vu-rehans-projects-bda1d4c6.vercel.app', // Previous specific URL
+        'https://insta-kilo-9asl-4pjg691g9-rehans-projects-bda1d4c6.vercel.app'  // Add this NEW specific frontend URL
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true
