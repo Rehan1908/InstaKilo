@@ -25,10 +25,12 @@ const corsOptions = {
         'https://insta-kilo-9asl.vercel.app', 
         'https://insta-kilo-9asl-en8cqa9vu-rehans-projects-bda1d4c6.vercel.app', 
         'https://insta-kilo-9asl-4pjg691g9-rehans-projects-bda1d4c6.vercel.app',
-        'https://insta-kilo-9asl-coohca47u-rehans-projects-bda1d4c6.vercel.app' // Add this NEWEST frontend URL
+        'https://insta-kilo-9asl-coohca47u-rehans-projects-bda1d4c6.vercel.app',
+        'https://insta-kilo-9asl-ak2hd57in-rehans-projects-bda1d4c6.vercel.app' // Add this NEWEST frontend URL
     ],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Ensure 'OPTIONS' is implicitly handled or add it if needed, though 'cors' middleware usually does.
+    credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'] // Explicitly allow Content-Type
 }
 app.use(cors(corsOptions));
 
