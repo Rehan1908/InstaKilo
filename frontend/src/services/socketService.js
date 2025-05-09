@@ -1,7 +1,5 @@
-// src/services/socketService.js
 import { io } from 'socket.io-client';
 
-// Create socket connection outside Redux
 let socket = null;
 
 export const initializeSocket = (token) => {

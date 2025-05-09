@@ -3,7 +3,6 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   messages: [],
   onlineUsers: [],
-  // Don't store socket here
 };
 
 const chatSlice = createSlice({
@@ -17,6 +16,7 @@ const chatSlice = createSlice({
       state.onlineUsers = action.payload;
     }
   }
+
 });
 
 export const { setMessages, setOnlineUsers } = chatSlice.actions;

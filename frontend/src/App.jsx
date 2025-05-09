@@ -53,13 +53,10 @@ function App() {
 
   useEffect(() => {
     if (user) {
-      // Initialize socket but don't store it in Redux
       const socketio = initializeSocket(user?._id);
       
-      // Mark the connection status in Redux
       dispatch(setSocketConnected(true));
 
-      // listen all the events
       socketio.on('getOnlineUsers', (onlineUsers) => {
         dispatch(setOnlineUsers(onlineUsers));
       });
@@ -69,12 +66,10 @@ function App() {
       });
 
       return () => {
-        // Clean up using the service
         disconnectSocket();
         dispatch(setSocketConnected(false));
       }
     } else {
-      // Make sure socket is disconnected when no user
       disconnectSocket();
       dispatch(setSocketConnected(false));
     }

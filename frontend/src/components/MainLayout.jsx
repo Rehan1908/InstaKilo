@@ -20,7 +20,7 @@ const MainLayout = () => {
         {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Left Sidebar - hidden on mobile unless toggled */}
+      {/* Left Sidebar */}
       <div 
         className={`fixed md:relative z-40 h-full bg-white border-r border-gray-200 w-64 transition-transform duration-300 ease-in-out
                     ${mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}

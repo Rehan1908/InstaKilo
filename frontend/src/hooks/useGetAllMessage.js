@@ -19,7 +19,6 @@ const useGetAllMessage = () => {
     
     const fetchMessages = async () => {
       try {
-        // Update this URL to match your backend route
         const res = await axios.get(`http://localhost:3000/api/v1/message/all/${selectedUser._id}`, {
           withCredentials: true
         })

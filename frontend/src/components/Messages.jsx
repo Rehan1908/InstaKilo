@@ -12,15 +12,12 @@ const Messages = ({ selectedUser }) => {
   const { messages } = useSelector(store => store.chat)
   const { user } = useSelector(store => store.auth)
 
-  // Add this ref for scrolling to bottom
   const messagesEndRef = useRef(null)
   
-  // Add this effect to auto-scroll to bottom when messages change
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
 
-  // Render empty state if there are no messages
   if (!messages || !Array.isArray(messages) || messages.length === 0) {
     return (
       <div className="flex items-center justify-center h-full text-gray-500 px-4">
@@ -65,12 +62,11 @@ const Messages = ({ selectedUser }) => {
                     ? "bg-blue-500 text-white rounded-br-none" 
                     : "bg-gray-200 text-gray-900 rounded-bl-none"}`}
               >
-                {message?.message}  {/* Changed from message?.text to message?.message */}
+                {message?.message} 
               </div>
             </div>
           )
         })}
-        {/* Add this at the end of the messages list */}
         <div ref={messagesEndRef} />
       </div>
     </div>
