@@ -11,11 +11,7 @@ const io = new Server(server, {
 		origin: [
 			"http://localhost:5173", 
 			"http://localhost:5174", 
-			"https://insta-kilo-9asl.vercel.app", // Ensure this exact URL is present
-			"https://insta-kilo-9asl-en8cqa9vu-rehans-projects-bda1d4c6.vercel.app",
-			"https://insta-kilo-9asl-4pjg691g9-rehans-projects-bda1d4c6.vercel.app",
-			"https://insta-kilo-9asl-coohca47u-rehans-projects-bda1d4c6.vercel.app",
-			"https://insta-kilo-9asl-ak2hd57in-rehans-projects-bda1d4c6.vercel.app" // Add this NEWEST frontend URL
+			"https://insta-kilo.vercel.app", // NEW frontend URL
 		],
 		methods: ["GET", "POST"],
 		// credentials: true, // Add if your socket connection relies on cookies from the frontend
